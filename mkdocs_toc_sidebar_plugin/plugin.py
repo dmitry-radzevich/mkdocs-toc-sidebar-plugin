@@ -37,5 +37,6 @@ class TocSidebar(BasePlugin):
             print("WARNING: Sidebar not found")
    
         #souped_html = soup.prettify(soup.original_encoding)
+        souped_html = soup.encode(soup.original_encoding)
         return souped_html 
 
