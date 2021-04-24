@@ -26,17 +26,15 @@ class TocSidebar(BasePlugin):
         nav_extra = soup.find("div", {"class": "sidebar"})
         if nav_extra:
             soup_toc = soup.find("div", {"data-md-component" : "toc"})
-            
             if soup_toc:
                 scrollwrap = soup_toc.findNext("div", {"class" : "md-sidebar__scrollwrap"})
                 if scrollwrap:
                     scrollwrap.insert(0, nav_extra)
             else:
-                print("WARNING: Table of Contents in sidebar not found")
+                print("WARNING (ToC Sidebar): Table of Contents in sidebar not found in %s" % page.file)
         else:
-            print("WARNING: Sidebar not found")
+            print("WARNING (ToC Sidebar): Sidebar not found in %s" % page.file)
    
-        #souped_html = soup.prettify(soup.original_encoding)
         souped_html = soup.encode(soup.original_encoding) if soup.original_encoding else str(soup)
         return souped_html 
 
