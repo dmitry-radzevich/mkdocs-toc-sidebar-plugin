@@ -31,9 +31,9 @@ class TocSidebar(BasePlugin):
                 if scrollwrap:
                     scrollwrap.insert(0, nav_extra)
             else:
-                print("WARNING (ToC Sidebar): Table of Contents in sidebar not found in %s" % page.file)
+                print("WARNING (ToC Sidebar): Table of Contents in sidebar not found in %s" % page.file.src_path)
         else:
-            print("WARNING (ToC Sidebar): Sidebar not found in %s" % page.file)
+            print("WARNING (ToC Sidebar): Sidebar not found in %s" % page.file.src_path)
    
         souped_html = soup.encode(soup.original_encoding) if soup.original_encoding else str(soup)
         return souped_html 
