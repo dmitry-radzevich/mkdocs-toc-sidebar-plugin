@@ -27,7 +27,7 @@ class TocSidebar(BasePlugin):
         if nav_extra:
             soup_toc = soup.find("div", {"data-md-component" : "toc"})
             if soup_toc:
-                scrollwrap = soup_toc.findNext("div", {"class" : "md-sidebar__scrollwrap"})
+                scrollwrap = soup_toc.find("div", {"class" : "md-sidebar__scrollwrap"})
                 if scrollwrap:
                     scrollwrap.insert(0, nav_extra)
             else:
