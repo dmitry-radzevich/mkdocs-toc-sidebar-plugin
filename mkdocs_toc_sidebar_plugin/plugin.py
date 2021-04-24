@@ -27,7 +27,7 @@ class TocSidebar(BasePlugin):
         if nav_extra:
             soup_toc = soup.find("div", {"data-md-component" : "toc"})
             if soup_toc:
-            	print("DEBUG (ToC Sidebar): ToC <div>: %s" % soup_toc.prettify())
+                print("DEBUG (ToC Sidebar): ToC <div>: %s" % soup_toc.prettify())
                 scrollwrap = soup_toc.find("div", {"class" : "md-sidebar__scrollwrap"})
                 if scrollwrap:
                     scrollwrap.insert(0, nav_extra)
