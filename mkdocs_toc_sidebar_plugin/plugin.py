@@ -25,15 +25,15 @@ class TocSidebar(BasePlugin):
         soup = BeautifulSoup(output_content, 'html.parser')
         nav_extra = soup.find("div", {"class": "sidebar"})
         if nav_extra:
-            soup_toc = soup.find("div", {"data-md-component" : "toc"})
+            soup_toc = soup.find("div", {"data-md-type" : "toc"})
             if soup_toc:
                 scrollwrap = soup_toc.find("div", {"class" : "md-sidebar__scrollwrap"})
                 if scrollwrap:
                     scrollwrap.insert(0, nav_extra)
+                else:
+                    print("WARNING (ToC Sidebar): Insertion point not found in %s" % page.file.src_path)
             else:
                 print("WARNING (ToC Sidebar): Table of Contents in sidebar not found in %s" % page.file.src_path)
-        else:
-            print("WARNING (ToC Sidebar): Sidebar not found in %s" % page.file.src_path)
    
         souped_html = soup.encode(soup.original_encoding) if soup.original_encoding else str(soup)
         return souped_html 
