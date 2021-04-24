@@ -32,7 +32,9 @@ class TocSidebar(BasePlugin):
                 if scrollwrap:
                     scrollwrap.insert(0, nav_extra)
             else:
-                print("WARNING: Table of Contents sidebar not found")
+                print("WARNING: Table of Contents in sidebar not found")
+        else:
+            print("WARNING: Sidebar not found")
    
         #souped_html = soup.prettify(soup.original_encoding)
         return souped_html 
